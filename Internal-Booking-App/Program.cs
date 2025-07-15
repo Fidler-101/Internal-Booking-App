@@ -1,8 +1,16 @@
+using Internal_Booking_App.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Register DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(Options => {
+    Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+ 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

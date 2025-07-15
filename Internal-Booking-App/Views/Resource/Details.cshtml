@@ -1,0 +1,23 @@
+﻿@model Internal_Booking_App.Models.Resource
+
+@{
+    ViewData["Title"] = "Resource Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="card mb-3 shadow">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Name</h4>
+        <p class="card-text">
+            <strong>Description:</strong> @Model.Description <br />
+            <strong>Location:</strong> @Model.Location <br />
+            <strong>Capacity:</strong> @Model.Capacity <br />
+            <strong>Available:</strong> @(Model.IsAvailable ? "Yes" : "No")
+        </p>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>

@@ -1,8 +1,30 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to the Internal Resource Booking System</h1>
+    <p class="lead">Manage your meeting rooms, vehicles, and equipment with ease.</p>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Resources</h5>
+                    <p class="card-text">View and manage shared company resources.</p>
+                    <a class="btn btn-primary" asp-controller="Resource" asp-action="Index">View Resources</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Bookings</h5>
+                    <p class="card-text">Make and view current bookings.</p>
+                    <a class="btn btn-success" asp-controller="Booking" asp-action="Index">View Bookings</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

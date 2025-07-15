@@ -1,0 +1,48 @@
+﻿@model Internal_Booking_App.Models.Booking
+
+@{
+    ViewData["Title"] = "Add Booking";
+}
+
+<h2 class="mb-4">@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post" class="needs-validation">
+    <div class="mb-3">
+        <label asp-for="ResourceId" class="form-label">Select Resource</label>
+        <select asp-for="ResourceId" asp-items="ViewBag.ResourceList" class="form-select">
+            <option value="">-- Select Resource --</option>
+        </select>
+        <span asp-validation-for="ResourceId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="BookedBy" class="form-label"></label>
+        <input asp-for="BookedBy" class="form-control" placeholder="e.g. Jane Doe" />
+        <span asp-validation-for="BookedBy" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Purpose" class="form-label"></label>
+        <input asp-for="Purpose" class="form-control" placeholder="e.g. Project Demo" />
+        <span asp-validation-for="Purpose" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="StartTime" class="form-label"></label>
+        <input asp-for="StartTime" type="datetime-local" class="form-control" />
+        <span asp-validation-for="StartTime" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="EndTime" class="form-label"></label>
+        <input asp-for="EndTime" type="datetime-local" class="form-control" />
+        <span asp-validation-for="EndTime" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Booking</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
